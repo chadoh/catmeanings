@@ -1,0 +1,27 @@
+<h1>Edit Your Account</h1>
+
+<%= form_for @user do |f| %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <div class="actions"><%= f.submit "Update Email", class: "button small" %></div>
+
+  <br>
+  <br>
+  <%= f.label :password, "New password" %>
+  <%= f.password_field :password %>
+  <%= f.label :password_confirmation, "New password confirmation" %>
+  <%= f.password_field :password_confirmation %>
+  <div class="actions"><%= f.submit "Update Password", class: "button small" %></div>
+
+  <br>
+  <br>
+  <br>
+  <h3>Danger Zone</h3>
+  <br>
+  <%= link_to "Delete Account", user_path,
+    method: :delete,
+    data: { confirm: "This will destroy your account. If you are the only owner of any apps,
+            they will be deleted along with all of their tips." },
+    class: "button small alert" %>
+<% end %>

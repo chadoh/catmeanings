@@ -1,0 +1,118 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require foundation_and_overrides
+ *= require font-awesome
+ *= require_self
+ */
+
+$avatar-size: 20px;
+.avatar, .avatar img {
+  height: $avatar-size;
+  width: $avatar-size;
+}
+
+input[type="file"], input[type="checkbox"], input[type="radio"], select {
+  margin-bottom: 0.7rem;
+}
+
+$keystroke-font: "Consolas", "Menlo", "Courier", monospace;
+.monospace {
+  font-family: $keystroke-font !important;
+}
+
+.inline-button {
+  line-height: 16px;
+  text-align: right;
+  .button {
+    margin-bottom: 0;
+  }
+}
+
+#search-or-add {
+  margin-top: 1.5em;
+  margin-top: 1.5rem;
+}
+
+#search form {
+  position: relative;
+  .fa {
+    position: absolute;
+    top: 11px;
+    left: 11px;
+  }
+  input {
+    padding-left: 25px;
+    border-radius: 25px;
+  }
+}
+
+// ***********************
+// ******  TIPS  *********
+// ***********************
+$border-color: silver;
+.tips {
+  list-style-type: none;
+  margin: 0;
+}
+.tip {
+  border: 1px solid $border-color;
+  border-radius: 0.3em;
+  margin-bottom: 1em;
+  display: table;
+  width: 100%;
+  > .edit_tip, > .new_tip {
+    display: table;
+  }
+  &.ui-sortable-helper {
+    border: none;
+    border-top: 1px solid $border-color;
+  }
+}
+.handle-and-icon, .text, .tip-actions {
+  display: table-cell;
+  padding: 0.8em;
+  vertical-align: middle;
+}
+.handle-and-icon {
+  white-space: nowrap;
+  padding-right: 0;
+  cursor: move;
+}
+.fa-bars {
+  width: 3px;
+  margin-left: -3px;
+  overflow: hidden;
+  color: silver;
+  vertical-align: middle;
+}
+.text {
+  width: 75%;
+  textarea {
+    margin: 0;
+    border: 0;
+  }
+}
+.tip-actions {
+  width: 25%;
+  text-align: center;
+  border-left: 1px solid $border-color;
+}
+label[for="tip_conditional"] {
+  margin-right: 0 !important;
+}
+#tip_conditional {
+  margin-bottom: 0;
+}
+.tip-actions > .edit_tip {
+  display: inline;
+  margin-right: 1.5em;
+}
+

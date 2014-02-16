@@ -1,0 +1,11 @@
+<h1>Cat Meanings</h1>
+
+<p>Cats! What do they mean? Sign up to find out!</p>
+
+<%= form_for @user, url: user_path do |f| %>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  <%= submit_tag "Get Started!", class: "button" %>
+<% end %>

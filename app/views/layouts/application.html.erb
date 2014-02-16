@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Cat Meanings" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <nav class="top-bar" data-topbar>
+      <% if current_user %>
+        <ul class="title-area">
+          <li class="name">
+            <h1><%= link_to "Cat Meanings", root_path %></h1>
+          </li>
+        </ul>
+
+        <section class="top-bar-section">
+          <ul class="right">
+            <li class="has-dropdown">
+              <%= link_to "#{current_user} #{gravatar_for current_user, tooltip: false}".html_safe, '#' %>
+              <ul class="dropdown">
+                <li><%= link_to "Edit Your Account", edit_user_path %></li>
+                <li><%= link_to "Sign Out", signout_path %></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      <% else %>
+        <section class="top-bar-section">
+          <ul class="right">
+            <li><%= link_to "Sign In", signin_path, data: { dropdown: "signin" } %></li>
+          </ul>
+        </section>
+      <% end %>
+    </nav>
+    <div id="signin" class="f-dropdown small content" data-dropdown-content>
+      <%= render "sessions/form" %>
+    </div>
+
+    <div id="main" class="row">
+      <div class="small-12 columns">
+        <% flash.each do |name, msg| %>
+          <div data-alert class="alert-box info">
+            <%= msg %>
+            <a href="#" class="close">&times;</a>
+          </div>
+        <% end -%>
+        <%= yield %>
+      </div>
+    </div>
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

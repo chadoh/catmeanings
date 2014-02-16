@@ -1,0 +1,9 @@
+defaults: &defaults
+  USERNAME: "chadoh"
+  PASSWORD: "parr0tMash"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
