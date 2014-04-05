@@ -1,3 +1,19 @@
-<%= link_to "Add a new cat", new_cat_path, class: "button" %>
-<%= render @cats %>
+<div class="row">
+  <div class="small-4 columns">
+    <% for cat in @column1 do %>
+      <%= render 'cats/cat', cat: cat %>
+    <% end %>
+  </div>
+  <div class="small-4 columns">
+    <% for cat in @column2 do %>
+      <%= render 'cats/cat', cat: cat %>
+    <% end %>
+  </div>
+  <div class="small-4 columns">
+    <% for cat in @column3 do %>
+      <%= render 'cats/cat', cat: cat %>
+    <% end %>
+  </div>
+</div>
+<%= will_paginate @cats %>
 <%= link_to "Add a new cat", new_cat_path, class: "button" %>

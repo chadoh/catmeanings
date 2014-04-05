@@ -27,6 +27,7 @@ gem 'premailer-rails'
 gem 'font-awesome-rails'
 
 gem 'filepicker-rails'
+gem 'will_paginate', '~> 3.0'
 
 group :test do
   gem 'factory_girl_rails'
