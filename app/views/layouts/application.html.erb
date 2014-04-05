@@ -18,6 +18,7 @@
           <li class="name">
             <h1><%= link_to "Cat Meanings", root_path %></h1>
           </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
         </ul>
 
         <section class="top-bar-section">
@@ -55,5 +56,6 @@
       </div>
     </div>
     <%= javascript_include_tag "application" %>
+    <%= yield :moar_javascript %>
   </body>
 </html>

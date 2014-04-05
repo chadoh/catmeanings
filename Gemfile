@@ -26,6 +26,8 @@ gem 'foundation-rails'
 gem 'premailer-rails'
 gem 'font-awesome-rails'
 
+gem 'filepicker-rails'
+
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara'

@@ -1,4 +1,5 @@
 CatMeanings::Application.routes.draw do
+
   if Rails.env.development?
     mount MailPreview => 'mail_view'
   end
@@ -12,5 +13,7 @@ CatMeanings::Application.routes.draw do
   resource :user
   resources :password_resets, except: [:index, :show, :destroy]
 
-  root to: 'users#new'
+  resources :cats
+
+  root to: 'cats#index'
 end

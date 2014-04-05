@@ -43,5 +43,7 @@ module CatMeanings
       g.assets = false
       g.view_specs = false
     end
+
+    config.filepicker_rails.api_key = ENV["FILEPICKER_KEY"]
   end
 end

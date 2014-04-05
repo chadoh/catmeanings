@@ -1,0 +1,20 @@
+<%= content_for :moar_javascript do %>
+  <%= filepicker_js_include_tag %>
+<% end %>
+
+<%= form_for cat do |f| %>
+  <div class="row">
+    <div class="medium-6 columns">
+      <%= filepicker_image_tag cat.image_url %>
+      <%= f.filepicker_field :image_url,
+        button_text: "#{params[:action] == 'new' ? "Add" : "Change" } picture",
+        mimetypes: "image/png,image/jpeg,image/gif",
+        onchange: "$('form img').attr('src', $('input#cat_image_url').val() )" %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.label :caption %>
+      <%= f.text_field :caption %>
+      <%= submit_tag "Save", class: "button" %>
+    </div>
+  </div>
+<% end %>
