@@ -16,4 +16,9 @@
   </div>
 </div>
 <%= will_paginate @cats %>
-<%= link_to "Add a new cat", new_cat_path, class: "button" %>
+
+<% if current_user %>
+  <%= link_to "Add a new cat", new_cat_path, class: "button" %>
+<% else %>
+    <%= link_to "Sign in to add your own cats!", signin_path, class: "button" %>
+<% end %>
