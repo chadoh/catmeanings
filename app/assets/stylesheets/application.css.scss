@@ -41,8 +41,11 @@
   }
 }
 
-.by-line, .by-line a {
-  color: gray;
+.by-line {
+  &, a {
+    color: gray;
+  }
+  display: block;
 }
 
 .comment {
