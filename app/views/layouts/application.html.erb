@@ -24,7 +24,7 @@
         <section class="top-bar-section">
           <ul class="right">
             <li class="has-dropdown">
-              <%= link_to "#{current_user} #{gravatar_for current_user, tooltip: false}".html_safe, '#' %>
+              <%= link_to "#{current_user} #{gravatar_for current_user}".html_safe, '#' %>
               <ul class="dropdown">
                 <li><%= link_to "Edit Your Account", edit_user_path %></li>
                 <li><%= link_to "Sign Out", signout_path %></li>

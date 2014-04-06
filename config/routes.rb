@@ -14,6 +14,7 @@ CatMeanings::Application.routes.draw do
   resources :password_resets, except: [:index, :show, :destroy]
 
   resources :cats
+  resources :comments, only: [:create, :edit, :update, :destroy]
 
   root to: 'cats#index'
 end

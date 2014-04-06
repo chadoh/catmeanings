@@ -12,4 +12,10 @@ FactoryGirl.define do
     image_url "http://0.media.collegehumor.cvcdn.com/47/92/9e17d515c9cd0ed0987454d4237b2f59-cat-and-person-eye-swap-is-fueled-by-your-nightmares.jpg"
     caption "Cat & human eye swap"
   end
+
+  factory :comment do
+    cat
+    user
+    text "OMG I <3 IT"
+  end
 end

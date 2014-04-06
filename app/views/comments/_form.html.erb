@@ -1,0 +1,21 @@
+<%= form_for comment, remote: true do |f| %>
+  <%= f.hidden_field :cat_id %>
+  <div class="comment clearfix">
+    <div class="comment-avatar">
+      <%= gravatar_for current_user, size: 48 %>
+    </div>
+    <div class="comment-body">
+      <header>
+        <% if params[:action] == "edit" %>
+          <%= f.label :text, "Edit your comment" %>
+        <% else %>
+          <%= f.label :text, "What do you think this cat is all about?" %>
+        <% end %>
+      </header>
+      <div class="comment-text">
+        <%= f.text_area :text %>
+        <%= submit_tag params[:action] == "edit" ? "Save" : "Comment", class: "button" %>
+      </div>
+    </div>
+  </div>
+<% end %>

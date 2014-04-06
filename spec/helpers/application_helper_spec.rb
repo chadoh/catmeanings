@@ -28,5 +28,13 @@ describe ApplicationHelper do
     it "puts an img in a .avatar div" do
       should match /avatar.+<img/
     end
+
+    it "defaults to size 20" do
+      should match /:20/
+    end
+
+    it "allows specifying the size" do
+      helper.gravatar_for(user, size: 50).should match /:50/
+    end
   end
 end

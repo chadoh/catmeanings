@@ -23,7 +23,8 @@ class CatsController < ApplicationController
   end
 
   def show
-    @cat = Cat.find params[:id]
+    @cat = Cat.find(params[:id])
+    @comments = @cat.comments
   end
 
   def edit

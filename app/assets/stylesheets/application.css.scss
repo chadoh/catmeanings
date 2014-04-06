@@ -14,9 +14,60 @@
  *= require_self
  */
 
-$avatar-size: 20px;
-.avatar, .avatar img {
-  height: $avatar-size;
-  width: $avatar-size;
+.avatar img {
+  border-radius: 4px;
 }
 
+.comment {
+  margin-bottom: 1.5em;
+}
+.comment-body {
+  margin-left: 65px;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  &:before, &:after {
+    transition: border-right-color 0.65s ease-out;
+    -webkit-transition: border-right-color 0.65s ease-out 0;
+  }
+  &:before, &:after {
+    position: absolute;
+    top: 11px;
+    left: -16px;
+    right: 100%;
+    width: 0;
+    height: 0;
+    display: block;
+    content: " ";
+    border-color: transparent;
+    border-style: solid solid outset;
+    pointer-events: none;
+    border-right-color: #dddddd;
+    border-width: 8px;
+  }
+  &:after {
+    border-width: 7px;
+    border-right-color: #f7f7f7;
+    margin-top: 1px;
+    margin-left: 2px;
+  }
+  header {
+    padding: 15px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #eee;
+    font-size: .8em;
+    .actions {
+      float: right;
+    }
+  }
+  .comment-text {
+    padding: 20px 15px;
+    input[type=submit] {
+      margin-bottom: 0;
+    }
+  }
+}
+.comment-avatar {
+  float: left;
+}
