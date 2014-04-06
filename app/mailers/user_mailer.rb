@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "Cat Meanings <support@catmeanings.com>"
+  default from: "Cat Meanings <hi+catmeanings@chadoh.com>"
   layout "mailer"
 
   helper EmailHelper
