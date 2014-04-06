@@ -18,7 +18,7 @@ class CatsController < ApplicationController
     @cat = Cat.new(cat_params)
     @cat.user = current_user
     @cat.save!
-    redirect_to :index
+    redirect_to root_url
   rescue
     render :new
   end
