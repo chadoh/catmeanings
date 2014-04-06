@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature "Signing up" do
 
+  let(:username) { "chadoh" }
   let(:email) { "hi@chadoh.com" }
   let(:password) { "secret" }
   let(:user) { User.first }
@@ -10,12 +11,14 @@ feature "Signing up" do
     before do
       visit "/signin"
       within("#new_user") do
+        fill_in "Username", with: username
         fill_in "Email", with: email
         click_on "Get Started"
       end
     end
 
     it "creates a user and signs them in" do
+      expect(User.first.username).to eq username
       expect(User.first.email).to eq email
 
       expect(page).to have_content user.to_s

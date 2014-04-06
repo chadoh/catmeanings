@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :user do
+    sequence(:username) {|n| "janedoe#{n}" }
     sequence(:email) {|n| "jane.doe.#{n}@catmeanings.com" }
     password SecureRandom.base64
     password_confirmation { password }

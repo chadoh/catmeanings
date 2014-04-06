@@ -1,8 +1,9 @@
 require "spec_helper"
 
 describe UserCreator do
+  let(:username) { "wilma" }
   let(:email) { "wilma@flinstones.com" }
-  let(:creator) { UserCreator.new(email: email) }
+  let(:creator) { UserCreator.new(username: username, email: email) }
 
   it "is instantiated with one arg, the email address of the user to create" do
     expect(creator).to be_kind_of UserCreator

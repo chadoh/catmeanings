@@ -42,4 +42,23 @@ describe CatsController do
     expect { cat.reload }.not_to raise_error
     expect(response).to redirect_to('/')
   end
+
+  describe "#index" do
+    it "loads all cats by default" do
+      cat # instantiate
+
+      get :index
+
+      expect(assigns(:cats)).to eq [cat]
+    end
+
+    it "scopes to a certain user's cats if given a user_id param" do
+      cat # instantiate
+      user2 = create :user
+
+      get :index, user: user2.id
+
+      expect(assigns(:cats)).to be_empty
+    end
+  end
 end

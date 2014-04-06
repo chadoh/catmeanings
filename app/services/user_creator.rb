@@ -1,10 +1,12 @@
 class UserCreator
-  def initialize(email: "")
+  def initialize(username: "", email: "")
+    @username = username
     @email = email
   end
 
   def create_user
     user = User.create(
+      username: username,
       email: email,
       password: password,
       password_confirmation: password,
@@ -17,7 +19,7 @@ class UserCreator
 
   private
 
-  attr_reader :email
+  attr_reader :username, :email
 
   def password
     @password ||= SecureRandom.base64

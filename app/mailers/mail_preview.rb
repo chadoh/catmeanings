@@ -11,7 +11,7 @@ if Rails.env == "development"
     private
 
     def user
-      User.first || UserCreator.new("hi@chadoh.com").create_user
+      User.first || UserCreator.new("chadoh", "hi@chadoh.com").create_user
     end
   end
 end

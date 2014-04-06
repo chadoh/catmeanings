@@ -7,16 +7,18 @@ feature "A user edits her account info" do
 
   let(:user) { create :user }
 
-  scenario "updating email address" do
+  scenario "updating username & email address" do
     sign_in user
     click_on "Edit Your Account"
 
     within("#main") do
+      fill_in "Username", with: name
       fill_in "Email", with: email
       click_on "Update Email"
     end
 
     expect(page).to have_content name
+    expect(user.reload.email).to eq email
   end
 
   scenario "updating password" do

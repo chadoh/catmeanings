@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   def new
   end
 
+  def show
+    redirect_to cats_url(user: params[:id])
+  end
+
   def create
     @user = UserCreator.new(params[:user].symbolize_keys).create_user
     sign_in @user
@@ -34,6 +38,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params[:user].permit(:email, :password, :password_confirmation)
+    params[:user].permit(:username, :email, :password, :password_confirmation)
   end
 end

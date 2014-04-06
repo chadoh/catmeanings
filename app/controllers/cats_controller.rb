@@ -3,8 +3,8 @@ class CatsController < ApplicationController
   respond_to :html
 
   def index
-    @cats = Cat.paginate page: params[:page], per_page: 30
-    athird = (@cats.length/3.0).ceil
+    @cats = scope_cats_to_user
+    @cats = @cats.paginate page: params[:page], per_page: 30
     @column1 = @cats[0...athird]
     @column2 = @cats[athird...athird*2]
     @column3 = @cats[athird*2...@cats.length] || []
@@ -16,6 +16,7 @@ class CatsController < ApplicationController
 
   def create
     @cat = Cat.new(cat_params)
+    @cat.user = current_user
     @cat.save!
     redirect_to :index
   rescue
@@ -48,6 +49,18 @@ class CatsController < ApplicationController
   end
 
   private
+
+  def scope_cats_to_user
+    if params[:user]
+      Cat.where user_id: params[:user]
+    else
+      Cat.all
+    end
+  end
+
+  def athird
+    (@cats.length/3.0).ceil
+  end
 
   def cat_params
     params[:cat].permit(:image_url, :name, :caption)

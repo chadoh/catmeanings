@@ -12,7 +12,7 @@
                   remote: true, method: :delete, confirm: "Are you sure?" %>
           </div>
         <% end %>
-        <strong><%= comment.user %></strong> commented
+        <strong><%= link_to comment.user, comment.user %></strong> commented
         <%= distance_of_time_in_words comment.created_at, Time.now %> ago
       </header>
       <div class="comment-text"><%= raw comment.text %></div>

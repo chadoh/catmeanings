@@ -26,7 +26,8 @@
             <li class="has-dropdown">
               <%= link_to "#{current_user} #{gravatar_for current_user}".html_safe, '#' %>
               <ul class="dropdown">
-                <li><%= link_to "Edit Your Account", edit_user_path %></li>
+                <li><%= link_to "View Your Profile", current_user %></li>
+                <li><%= link_to "Edit Your Account", edit_user_path(current_user) %></li>
                 <li><%= link_to "Sign Out", signout_path %></li>
               </ul>
             </li>

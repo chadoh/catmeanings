@@ -1,5 +1,7 @@
 <%= form_for User.new, url: user_path do |f| %>
   <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username, required: true %>
     <%= f.label :email %>
     <%= f.email_field :email, required: true %>
   </div>

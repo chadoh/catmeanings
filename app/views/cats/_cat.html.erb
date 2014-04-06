@@ -1,6 +1,12 @@
 <div class="cat">
   <h2><%= link_to_unless_current cat, cat %></h2>
 
+  <small class="by-line">
+    <strong><%= link_to cat.user, cat.user %></strong>
+    shared
+    <%= distance_of_time_in_words cat.created_at, Time.now %> ago
+  </small>
+
   <%= link_to_unless_current image_tag(cat.image_url, alt: cat.name), cat %>
 
   <% if cat.user == current_user %>
