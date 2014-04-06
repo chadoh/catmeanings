@@ -17,12 +17,16 @@ class CommentsController < ApplicationController
 
   def update
     comment = Comment.find params[:id]
+    head(:unauthorized) and return if current_user != comment.user
+
     comment.update_attributes comment_params
     @comments = comment.cat.comments
   end
 
   def destroy
     comment = Comment.find params[:id]
+    head(:unauthorized) and return if current_user != comment.user
+
     comment.destroy
     @comments = comment.cat.comments
   end

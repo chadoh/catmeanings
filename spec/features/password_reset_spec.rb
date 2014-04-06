@@ -4,7 +4,7 @@ feature "Resetting your password" do
   let(:user)  { create(:user) }
 
   scenario "I reset my password from the sign-in form" do
-    visit "/"
+    visit "/signin"
     click_link "Reset your password"
     within("#main") do
       fill_in "Email", with: user.email

@@ -1,7 +1,16 @@
-<h2><%= link_to cat, cat %></h2>
+<div class="cat">
+  <h2><%= link_to_unless_current cat, cat %></h2>
 
-<%= link_to image_tag(cat.image_url, alt: cat.name), cat %>
+  <%= link_to_unless_current image_tag(cat.image_url, alt: cat.name), cat %>
 
-<p><%= cat.caption %></p>
+  <% if cat.user == current_user %>
+    <div class="actions">
+      <%= link_to fa_icon("pencil"), edit_cat_path(cat) %>
+      <%= link_to fa_icon("times"), cat,
+        method: :delete,
+        confirm: "Cats purr when they're dying. :-(  Are you sure you want to delete this cat?" %>
+    </div>
+  <% end %>
 
-<hr>
+  <p><%= cat.caption %></p>
+</div>

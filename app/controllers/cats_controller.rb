@@ -7,7 +7,7 @@ class CatsController < ApplicationController
     athird = (@cats.length/3.0).ceil
     @column1 = @cats[0...athird]
     @column2 = @cats[athird...athird*2]
-    @column3 = @cats[athird*2...@cats.length]
+    @column3 = @cats[athird*2...@cats.length] || []
   end
 
   def new
@@ -29,18 +29,22 @@ class CatsController < ApplicationController
 
   def edit
     @cat = Cat.find params[:id]
+    redirect_to root_url unless @cat.user == current_user
   end
 
   def update
     @cat = Cat.find params[:id]
+    redirect_to root_url and return unless @cat.user == current_user
+
     @cat.update_attributes cat_params
     redirect_to :cats
   end
 
   def destroy
     @cat = Cat.find params[:id]
+    redirect_to root_url and return unless @cat.user == current_user
     @cat.destroy
-    redirect_to cats_url, notice: "You've removed that cat"
+    redirect_to root_url, notice: "You've removed that cat"
   end
 
   private

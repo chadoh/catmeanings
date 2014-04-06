@@ -14,4 +14,12 @@ describe Cat do
       expect(cat.comments).to eq []
     end
   end
+
+  describe "#user" do
+    let(:cat) { create :cat }
+
+    it "returns the related user" do
+      expect(cat.user).to be_kind_of User
+    end
+  end
 end

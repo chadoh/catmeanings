@@ -43,7 +43,7 @@ end
 
 def sign_in(user)
   visit "/signin"
-  within("#main") do
+  within("#new_session") do
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password
     click_button "Sign In"
@@ -53,7 +53,7 @@ end
 def sign_out_and_in_again(email, password)
   click_on "Sign Out"
   click_link "Sign In"
-  within("#main") do
+  within("#new_session") do
     fill_in "Email", with: email
     fill_in "Password", with: password
     click_button "Sign In"

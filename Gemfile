@@ -43,5 +43,5 @@ end
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'debugger'
+  gem 'pry'
 end

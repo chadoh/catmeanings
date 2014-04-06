@@ -8,8 +8,8 @@ feature "Signing up" do
 
   context "when the email address is not already taken" do
     before do
-      visit "/"
-      within("#main") do
+      visit "/signin"
+      within("#new_user") do
         fill_in "Email", with: email
         click_on "Get Started"
       end

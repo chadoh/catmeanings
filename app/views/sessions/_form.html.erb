@@ -1,4 +1,4 @@
-<%= form_tag sessions_path do %>
+<%= form_tag sessions_path, id: "new_session" do %>
   <%= label_tag :email %>
   <%= text_field_tag :email, params[:email], autofocus: true %>
   <%= label_tag :password %>

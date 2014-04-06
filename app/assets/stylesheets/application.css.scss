@@ -18,6 +18,29 @@
   border-radius: 4px;
 }
 
+.cat {
+  border-bottom: 1px solid silver;
+  margin-bottom: 1.5em;
+  &:hover {
+    .actions {
+      visibility: visible;
+    }
+  }
+  .actions {
+    visibility: hidden;
+    margin-top: -2em;
+    text-align: right;
+    padding: 0.5em 1em;
+    a {
+      color: white;
+      text-shadow: 0 0 5px rgba(0,0,0,0.8);
+      &:hover {
+        text-shadow: 0 0 5px rgba(255,255,255,0.8), 0 0 5px rgba(0,0,0,0.8);
+      }
+    }
+  }
+}
+
 .comment {
   margin-bottom: 1.5em;
 }
