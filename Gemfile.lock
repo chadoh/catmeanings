@@ -240,6 +240,7 @@ DEPENDENCIES
   jquery-ui-rails
   mail_view
   newrelic_rpm
+  nokogiri
   pg
   premailer-rails
   pry

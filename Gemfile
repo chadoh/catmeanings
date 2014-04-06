@@ -24,6 +24,7 @@ gem 'ranked-model'
 gem 'turbolinks'
 gem 'foundation-rails'
 gem 'premailer-rails'
+gem 'nokogiri' # for premailer
 gem 'font-awesome-rails'
 
 gem 'filepicker-rails'
