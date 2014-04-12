@@ -7,7 +7,6 @@
     <title><%= content_for?(:title) ? yield(:title) : "Cat Meanings" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
@@ -20,6 +19,23 @@
           </li>
           <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
         </ul>
+
+        <section class="top-bar-section">
+          <ul>
+            <li class="has-form">
+              <form action="/" method="get" class="search" name="search">
+                <div class="row collapse">
+                  <div class="medium-10 small-11 columns">
+                    <input type="search" name="q" placeholder="Search" autocomplete="off" value="<%= raw params[:q] %>">
+                  </div>
+                  <div class="medium-2 small-1 columns">
+                    <button type="submit" class="button expand"><%= fa_icon 'search' %></button>
+                  </div>
+                </div>
+              </form>
+            </li>
+          </ul>
+        </section>
 
       <% if current_user %>
         <section class="top-bar-section">

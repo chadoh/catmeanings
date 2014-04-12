@@ -60,5 +60,14 @@ describe CatsController do
 
       expect(assigns(:cats)).to be_empty
     end
+
+    it "allows searching, finding cats by name or caption" do
+      cat # instantiate
+      cat2 = create :cat
+
+      get :index, q: cat2.name
+
+      expect(assigns(:cats).length).to eq 1
+    end
   end
 end

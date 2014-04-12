@@ -15,6 +15,7 @@
 #= require jquery.ui.sortable
 #= require foundation
 #= require turbolinks
+#= require vendor/modernizr
 #= require_tree .
 #
 jQuery ->

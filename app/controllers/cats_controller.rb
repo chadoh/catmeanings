@@ -3,7 +3,8 @@ class CatsController < ApplicationController
   respond_to :html
 
   def index
-    @cats = scope_cats_to_user
+    response.headers["X-Xss-Protection"] = "0"
+    @cats = scope_cats_to_user_and_query
     @cats = @cats.paginate page: params[:page], per_page: 30
     @column1 = @cats[0...athird]
     @column2 = @cats[athird...athird*2]
@@ -50,12 +51,14 @@ class CatsController < ApplicationController
 
   private
 
-  def scope_cats_to_user
-    if params[:user]
-      Cat.where user_id: params[:user]
-    else
-      Cat.all
-    end
+  def scope_cats_to_user_and_query
+    @sharer = User.find params[:user] if params[:user]
+    @query = params[:q]
+
+    cats = Cat.all
+    cats.where! user_id: @sharer.id if @sharer
+    cats = cats.matching @query     if @query
+    cats
   end
 
   def athird

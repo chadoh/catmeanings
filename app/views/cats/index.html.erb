@@ -1,24 +1,35 @@
-<div class="row">
-  <div class="small-4 columns">
-    <% for cat in @column1 do %>
-      <%= render 'cats/cat', cat: cat %>
-    <% end %>
+<% if @sharer %>
+  <p>Cats shared by <%= @sharer %></p>
+<% end %>
+
+<% if @cats.empty? %>
+  <h2>No cats found!</h2>
+<% else %>
+  <div class="row">
+    <div class="small-4 columns">
+      <% for cat in @column1 do %>
+        <%= render 'cats/cat', cat: cat %>
+      <% end %>
+    </div>
+    <div class="small-4 columns">
+      <% for cat in @column2 do %>
+        <%= render 'cats/cat', cat: cat %>
+      <% end %>
+    </div>
+    <div class="small-4 columns">
+      <% for cat in @column3 do %>
+        <%= render 'cats/cat', cat: cat %>
+      <% end %>
+    </div>
   </div>
-  <div class="small-4 columns">
-    <% for cat in @column2 do %>
-      <%= render 'cats/cat', cat: cat %>
-    <% end %>
-  </div>
-  <div class="small-4 columns">
-    <% for cat in @column3 do %>
-      <%= render 'cats/cat', cat: cat %>
-    <% end %>
-  </div>
-</div>
+<% end %>
+
 <%= will_paginate @cats %>
 
-<% if current_user %>
-  <%= link_to "Add a new cat", new_cat_path, class: "button" %>
-<% else %>
-    <%= link_to "Sign in to add your own cats!", signin_path, class: "button" %>
-<% end %>
+<div class="bottom-button">
+  <% if current_user %>
+    <%= link_to "Add a new cat", new_cat_path, class: "button" %>
+  <% else %>
+      <%= link_to "Sign in to add your own cats!", signin_path, class: "button" %>
+  <% end %>
+</div>

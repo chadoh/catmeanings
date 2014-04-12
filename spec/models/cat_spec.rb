@@ -22,4 +22,24 @@ describe Cat do
       expect(cat.user).to be_kind_of User
     end
   end
+
+  describe '.matching' do
+    it "returns cats with a name partially matching the given term" do
+      cat = create :cat, name: "pigglity wigglity"
+
+      expect(Cat.matching "wigglity").to eq [cat]
+    end
+
+    it "returns cats with a caption partially matching the given term" do
+      cat = create :cat, caption: "pigglity wigglity"
+
+      expect(Cat.matching "wigglity").to eq [cat]
+    end
+
+    it "searches case insensitively" do
+      cat = create :cat, name: "PiggliTY WIGglity"
+
+      expect(Cat.matching "wigglity").to eq [cat]
+    end
+  end
 end
