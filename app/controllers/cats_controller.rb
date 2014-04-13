@@ -8,7 +8,8 @@ class CatsController < ApplicationController
     @cats = @cats.paginate page: params[:page], per_page: 30
     @column1 = @cats[0...athird]
     @column2 = @cats[athird...athird*2]
-    @column3 = @cats[athird*2...@cats.length] || []
+    @column3_1 = @cats[athird*2...athird*5/2] || []
+    @column3_2 = @cats[athird*5/2...@cats.length] || []
   end
 
   def new

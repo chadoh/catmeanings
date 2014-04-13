@@ -6,20 +6,29 @@
   <h2>No cats found!</h2>
 <% else %>
   <div class="row">
-    <div class="small-4 columns">
+    <div class="small-6 medium-4 columns">
       <% for cat in @column1 do %>
         <%= render 'cats/cat', cat: cat %>
       <% end %>
     </div>
-    <div class="small-4 columns">
+    <div class="small-6 medium-4 columns">
       <% for cat in @column2 do %>
         <%= render 'cats/cat', cat: cat %>
       <% end %>
     </div>
-    <div class="small-4 columns">
-      <% for cat in @column3 do %>
-        <%= render 'cats/cat', cat: cat %>
-      <% end %>
+    <div class="small-12 medium-4 columns">
+      <div class="row">
+        <div class="small-6 medium-12 columns">
+          <% for cat in @column3_1 do %>
+            <%= render 'cats/cat', cat: cat %>
+          <% end %>
+        </div>
+        <div class="small-6 medium-12 columns">
+          <% for cat in @column3_2 do %>
+            <%= render 'cats/cat', cat: cat %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>
