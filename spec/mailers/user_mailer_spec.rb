@@ -9,7 +9,7 @@ describe UserMailer do
     it "renders the headers" do
       mail.subject.should match("Welcome")
       mail.to.should eq([user.email])
-      mail.from.should eq(["support@catmeanings.com"])
+      mail.from.should eq(["hi+catmeanings@chadoh.com"])
     end
 
     it "contains a link to set up a password" do
@@ -24,7 +24,7 @@ describe UserMailer do
     it "renders the headers" do
       mail.subject.should eq("Password Reset")
       mail.to.should eq([user.email])
-      mail.from.should eq(["support@catmeanings.com"])
+      mail.from.should eq(["hi+catmeanings@chadoh.com"])
     end
 
     it "contains a link to reset the user's password" do
