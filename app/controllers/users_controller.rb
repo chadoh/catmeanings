@@ -23,7 +23,16 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(user_params)
-      redirect_to root_url, notice: "Your account has been updated."
+      redirect_to edit_user_url(current_user), notice: "Your account has been updated."
+    else
+      render :edit
+    end
+  end
+
+  def dumb_update
+    @user = current_user
+    if @user.update_attributes(user_params)
+      redirect_to edit_user_url(current_user), notice: "Your account has been updated."
     else
       render :edit
     end

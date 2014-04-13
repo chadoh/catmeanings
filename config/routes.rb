@@ -10,7 +10,9 @@ CatMeanings::Application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users, except: :index
+  resources :users, except: :index do
+    get :dumb_update, on: :collection
+  end
   resources :password_resets, except: [:index, :show, :destroy]
 
   resources :cats
